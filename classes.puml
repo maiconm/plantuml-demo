@@ -1,15 +1,17 @@
 @startuml "Classes"
 
 top to bottom direction
+class OutroAlerta {}
 
 class Pessoa {
 }
 
 class Alerta <<abstract>> {
-  - number timerHandler
+  - number timer
   + Date horario
   + boolean absoluto
   + string descricao
+  + boolean teste2
   + cancelar()
   + ajustar(horario)
   constructor(desc, hor)
@@ -18,7 +20,7 @@ note left of Alerta : Alerta programado.\n\nPossui uma descrição que é\nexibi
 
 class AlertaRelativo {
   constructor(desc, horExpr)
-  + ajustar(horExpr)
+  + ajustar(horarioCompleto)
   + string: getTempoRestante()
 }
 
